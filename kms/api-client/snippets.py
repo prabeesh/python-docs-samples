@@ -85,7 +85,7 @@ def encrypt(project_id, location_id, key_ring_id, crypto_key_id,
         name=name,
         body={'plaintext': base64.b64encode(plaintext).decode('ascii')})
     response = request.execute()
-    ciphertext = base64.b64decode(response['ciphertext'].encode('ascii'))
+    ciphertext = response['ciphertext'].encode('ascii')
 
     # Write the encrypted data to a file.
     with io.open(ciphertext_file_name, 'wb') as ciphertext_file:
